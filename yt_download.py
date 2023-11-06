@@ -11,14 +11,8 @@ except Exception as e:
 print(f"Proceed to download :{video.title}?")
 
 if (input("[y/n] ")) == "y":
-    resolutions={}
-    for i, j in enumerate(video.streams, 1):
-        resolutions.setdefault(j.resolution,i)
-        print(resolutions[j.resolution])
-        
-    resol = input("Enter the resolution:")
-    video.streams.get_by_resolution(resol)
+    print("Downloading...")
+
+    video.streams.get_lowest_resolution().download()
 
     print("Download Completed")
-
-print("invalid")
